@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - Explore Your Next Great Read</title>
+    <link rel="icon" href="Logo12.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f1e8 0%, #e8dfd0 100%);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-5">
+                    <img src="./Bookhub logo1.png" alt="BookHub Logo" class="h-20 w-auto">
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="./index.html" class="text-gray-800 hover:text-amber-600 font-medium transition">Home</a>
+                    <a href="../Lab2/favorites.html"
+                        class="text-gray-800 hover:text-amber-600 font-medium transition">Favorites</a>
+                    <a href="./about.html" class="text-gray-900 font-medium transition">About</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition" onclick="toggleMobileMenu()"
+                    aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-2">
+                <a href="./index.html"
+                    class="block px-4 py-2 text-gray-800 hover:bg-amber-50 rounded-lg transition">Home</a>
+                <a href="../Lab2/favorites.html"
+                    class="block px-4 py-2 text-gray-800 hover:bg-amber-50 rounded-lg transition">Favorites</a>
+                <a href="./about.html"
+                    class="block px-4 py-2 text-gray-800 hover:bg-amber-50 rounded-lg transition">About</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About BookHub</h1>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            BookHub is a simple, responsive, and API-powered book explorer. It uses the public Open Library API to fetch
+            real book data and lets you search and curate your personal favorites list stored locally in your browser.
+        </p>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-3">Features</h2>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>Browse books fetched from the Open Library API</li>
+                <li>Search by keywords or titles</li>
+                <li>Add or remove favorites (persisted with localStorage)</li>
+                <li>Navigate across Home, Favorites, and About pages</li>
+                <li>Responsive layout built with Tailwind CSS</li>
+            </ul>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-3">Tech Stack</h2>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                <li>HTML5 + Vanilla JavaScript (ES Modules)</li>
+                <li>Open Library Search API</li>
+                <li>Tailwind CSS via CDN</li>
+                <li>localStorage for favorites</li>
+            </ul>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-3">Credits</h2>
+            <p class="text-gray-700">Book data is provided by the Open Library project.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t bg-white/70 backdrop-blur">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-gray-600">© <span id="year"></span> Book Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

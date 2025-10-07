@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHub - Explore Your Next Great Read</title>
+    <link rel="icon" href="Logo12.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f1e8 0%, #e8dfd0 100%);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-5">
+                    <img src="../Lab1/Bookhub logo1.png" alt="BookHub Logo" class="h-20 w-auto">
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../Lab1/index.html"
+                        class="text-gray-800 hover:text-amber-600 font-medium transition">Home</a>
+                    <a href="./favorites.html"
+                        class="text-gray-800 hover:text-amber-600 font-medium transition">Favorites</a>
+                    <a href="../Lab1/about.html" class="text-gray-900 font-medium transition">About</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 hover:bg-gray-100 rounded-lg transition" onclick="toggleMobileMenu()"
+                    aria-label="Open Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-3 space-y-2">
+                <a href="../Lab1/index.html"
+                    class="block px-4 py-2 text-gray-800 hover:bg-amber-50 rounded-lg transition">Home</a>
+                <a href="./favorites.html"
+                    class="block px-4 py-2 text-gray-800 hover:bg-amber-50 rounded-lg transition">Favorites</a>
+                <a href="../Lab1/about.html"
+                    class="block px-4 py-2 text-gray-800 hover:bg-amber-50 rounded-lg transition">About</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="min-h-screen mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 py-8">
+        <!-- Page Title -->
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
+            Your Favorite Books
+        </h1>
+        <!-- Search Bar -->
+        <div class="w-full md:w-96 relative -top-6">
+            <div class="relative">
+                <input type="text" placeholder="Search book name, author, edition..."
+                    class="w-full px-5 py-3 pr-12 rounded-full border border-gray-300 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition">
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 p-2 hover:bg-gray-100 rounded-full transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Favorites Grid -->
+        <section>
+            <div id="favoritesStatus" class="text-sm text-gray-600 mb-3"></div>
+            <div id="favoritesGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t bg-white/70 backdrop-blur">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-gray-600">© <span id="year"></span> Book Explorer. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="./favoritesPage.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+    </script>
+</body>
+
+</html>
